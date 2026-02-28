@@ -101,6 +101,43 @@ wait_for_sms({
 })
 ```
 
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `PUSHBULLET_API_TOKEN` | ✅ Yes | Your Pushbullet API access token |
+
+### `PUSHBULLET_API_TOKEN`
+
+Your Pushbullet API access token. Used to authenticate with the Pushbullet API and WebSocket stream.
+
+**How to get it:**
+1. Log in at https://www.pushbullet.com
+2. Go to **Settings** → **Account**
+3. Scroll to **Access Tokens** and click **Create Access Token**
+4. Copy the token — it looks like `o.xxxxxxxxxxxxxxxxxxxxxx`
+
+**How to set it:**
+
+Option A — shell export (current session only):
+```bash
+export PUSHBULLET_API_TOKEN="o.xxxxxxxxxxxxxxxxxxxxxx"
+```
+
+Option B — shell profile (persists across sessions), add to `~/.zshrc` or `~/.bashrc`:
+```bash
+export PUSHBULLET_API_TOKEN="o.xxxxxxxxxxxxxxxxxxxxxx"
+```
+
+Option C — directly in `.mcp.json` (recommended for Claude Code):
+```json
+"env": {
+  "PUSHBULLET_API_TOKEN": "o.xxxxxxxxxxxxxxxxxxxxxx"
+}
+```
+
+> ⚠️ Never commit your API token to git. Add `.env` to your `.gitignore`.
+
 ## Security
 
 - API token is passed via environment variable, not hardcoded
